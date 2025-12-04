@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 
 interface CatFact {
   fact: string;
@@ -17,14 +17,13 @@ const fetchCatFact = async (): Promise<CatFact> => {
   return data;
 };
 
-export const useCatFact = (enabled: boolean = true) => {
-  return useQuery({
+export const useCatFact = () => {
+  return useSuspenseQuery<CatFact>({
     queryKey: ['catFact'],
     queryFn: fetchCatFact,
-    suspense: true,
-    staleTime: 0,
-    cacheTime: 0, 
-    enabled, 
+    staleTime: 30000,
+
+
   });
 };
 

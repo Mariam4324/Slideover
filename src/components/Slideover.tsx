@@ -1,22 +1,11 @@
 import { createPortal } from "react-dom";
 import {
-  createContext,
   ReactNode,
   useContext,
   useLayoutEffect,
   useRef,
-  type SetStateAction,
 } from "react";
-
-export const SlideoverContext = createContext<
-  | {
-      container: HTMLDivElement | null;
-      onStackChange: (value: SetStateAction<(() => void)[]>) => void;
-    }
-  | undefined
->(undefined);
-
-export const SlideoverContextProvider = SlideoverContext.Provider;
+import { SlideoverContext } from "./SlideoverContext";
 
 const sizeClasses = {
   s: { maxWidth: "360px", minWidth: "360px" },

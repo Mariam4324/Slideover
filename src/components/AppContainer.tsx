@@ -1,5 +1,5 @@
 import { useState, type ReactNode  } from "react";
-import { SlideoverContextProvider } from "./Slideover";
+import { SlideoverContextProvider } from "./SlideoverContext";
 
 export const AppContainer = ({ children }: { children: ReactNode }) => {
     const [slideoverContainer, setSlideoverContainer] =

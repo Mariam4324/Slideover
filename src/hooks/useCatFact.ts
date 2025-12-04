@@ -17,24 +17,22 @@ const fetchCatFact = async (): Promise<CatFact> => {
   return data;
 };
 
-// Вариант 1: Всегда получать новые данные (убрать кэширование)
 export const useCatFact = (enabled: boolean = true) => {
   return useQuery({
     queryKey: ['catFact'],
     queryFn: fetchCatFact,
     suspense: true,
-    staleTime: 0, // Данные сразу устаревают
-    cacheTime: 0, // Не хранить в кэше
-    enabled, // Запрос только когда enabled = true
+    staleTime: 0,
+    cacheTime: 0, 
+    enabled, 
   });
 };
 
-// Вариант 2: Использовать timestamp в queryKey для уникальности
-export const useCatFactWithTimestamp = (timestamp?: number) => {
-  return useQuery({
-    queryKey: ['catFact', timestamp],
-    queryFn: fetchCatFact,
-    suspense: true,
-    staleTime: 30000,
-  });
-};
+// export const useCatFactWithTimestamp = (timestamp?: number) => {
+//   return useQuery({
+//     queryKey: ['catFact', timestamp],
+//     queryFn: fetchCatFact,
+//     suspense: true,
+//     staleTime: 30000,
+//   });
+// };

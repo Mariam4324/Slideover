@@ -4,10 +4,9 @@ import { AppContainer } from './components/AppContainer'
 import { Header } from './components/Header'
 import { ApiProvider } from './providers/ApiProvider'
 
-// Функция для задержки загрузки модуля
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-// Ленивая загрузка страниц с задержкой 2 секунды
+
 const AboutPage = lazy(() => 
   delay(3000).then(() => import('./pages/AboutPage'))
 );
@@ -15,7 +14,7 @@ const SettingsPage = lazy(() =>
   delay(3000).then(() => import('./pages/SettingsPage'))
 );
 
-// Компонент загрузки
+
 const LoadingFallback = () => {
   return (
     <div

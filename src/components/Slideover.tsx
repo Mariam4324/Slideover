@@ -68,7 +68,8 @@ export const Slideover = ({
   }
 
   return createPortal(
-    <div
+    <dialog
+    open
       style={{
         position: "relative",
       }}
@@ -160,7 +161,7 @@ export const Slideover = ({
           </div>
         </div>
       </section>
-    </div>,
+    </dialog>,
     container
   );
 };
